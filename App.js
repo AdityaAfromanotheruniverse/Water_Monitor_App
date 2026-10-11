@@ -6,7 +6,7 @@ import * as ScreensMod from './Screens';
 const StatusScreen = StatusMod.default || StatusMod.StatusScreen;
 const { ParametersScreen, AlertsScreen, TelegramScreen, AdminScreen } = ScreensMod;
 
-const API = 'http://10.225.230.163:8000';
+const API = 'http://192.168.1.10:8000';
 
 async function api(path, options = {}) {
   const { headers, ...rest } = options;
