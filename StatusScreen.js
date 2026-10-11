@@ -1,19 +1,4 @@
 // StatusScreen.js
-// React Native implementation of the "Status Dashboard" from the Figma file
-//   Water Monitor App — UI/UX  (frames 6:2 = safe, 1:2 = unsafe)
-// One component renders BOTH states from your backend's GET /state response.
-//
-// Setup (Expo):
-//   npx expo install expo-font @expo-google-fonts/inter
-//   (load Inter in App.js with useFonts: Inter_400Regular, Inter_500Medium,
-//    Inter_600SemiBold, Inter_700Bold, Inter_800ExtraBold)
-//
-// Usage in App.js:
-//   import StatusScreen from './StatusScreen';
-//   <StatusScreen onTabPress={(tab) => { /* navigate */ }} />
-//
-// For design previews without the backend, pass a `state` prop shaped like /state.
-
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
   ActivityIndicator,
@@ -135,7 +120,6 @@ function SupplyCard({ label, value, note, tone }) {
 
 // Water-flow strip. Droplets slide along a pipe; `period` is the droplet spacing
 // and `speed` (px/s) is how fast they move, so the two lines visibly differ.
-// Matches the Figma prototype loop (city ≈ 83 px/s, tester ≈ 111 px/s).
 function FlowStrip({ label, active, labelColor, dotColor, period, speed }) {
   const [width, setWidth] = useState(335);
   const shift = useRef(new Animated.Value(0)).current;
@@ -196,7 +180,7 @@ function CategoryRow({ name, total, unsafe }) {
   );
 }
 
-function TabBar({ active, onTabPress }) {
+export function TabBar({ active, onTabPress }) {
   return (
     <View style={styles.tabBar}>
       {TABS.map((t) => {
